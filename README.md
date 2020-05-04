@@ -1,15 +1,20 @@
 # ModbusRtuToTcpProxy
 
+
 //-----------------------------------------------------------------------------------------------------
 
 ModbusRtuToTcpProxy - proxy server program for converting ModbusRTU protocol to ModbusTCP.
 
+
 //-----------------------------------------------------------------------------------------------------
+
 Forked from:
 The homepage for com0com project is http://com0com.sourceforge.net/.
 COM port to TCP redirector. Brought to you by:
 vfrolov [Vyacheslav Frolov](http://sourceforge.net/u/vfrolov/profile/)
+
 //-----------------------------------------------------------------------------------------------------
+
 
 ModbusRtuToTcpProxy - программа для преобразования протокола ModbusRTU в ModbusTCP.
 Является прокси сервером между программой-преобразователем интерфейсов serial COMM в TCP/IP.
@@ -30,7 +35,9 @@ ModbusRtuToTcpProxy - в качестве прокси сервера прини
 Программа HW VSP3 Single в роли сервера на другом конце сети зоздаёт виртуальный COMM порт
 и отправляет в него данные принятые из соккета по сети TCP/IP.
 
+
 //-----------------------------------------------------------------------------------------------------
+
 Использование: напишите в командной строке: 
 ModbusRtuToTcpProxy  <listen port> <host addr> <host port>
 Для примера: 
@@ -38,7 +45,9 @@ ModbusRtuToTcpProxy      502      192.168.0.9     502
 
 Файл start.bat для удобного запуска программы ModbusRtuToTcpProxy.
 
+
 //-----------------------------------------------------------------------------------------------------
+
 ModbusRtuToTcpProxy - a program for converting the ModbusRTU protocol to ModbusTCP.
 It is a proxy server between the serial COMM to TCP / IP converter.
 For example - HW VSP3 Single (https://www.hw-group.com/software/hw-vsp3-virtual-serial-port).
@@ -58,11 +67,14 @@ for transmission over a TCP / IP network to a ModbusTCP device.
 HW VSP3 Single program as a server on the other end of the network creates a virtual COMM port
 and sends data received from the socket to the TCP / IP network into it.
 
+
 //-----------------------------------------------------------------------------------------------------
+
 Usage: write on the command line:
 ModbusRtuToTcpProxy <listen port> <host addr> <host port>
 For example:
 ModbusRtuToTcpProxy     502      192.168.0.9      502
 
 Start.bat file for convenient launch of the ModbusRtuToTcpProxy program.
+
 
