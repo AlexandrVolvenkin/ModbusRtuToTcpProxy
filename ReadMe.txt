@@ -1,4 +1,4 @@
-//-----------------------------------------------------------------------------------------------------
+п»ї//-----------------------------------------------------------------------------------------------------
 ModbusRtuToTcpProxy - proxy server program for converting ModbusRTU protocol to ModbusTCP.
 
 //-----------------------------------------------------------------------------------------------------
@@ -9,32 +9,45 @@ vfrolov [Vyacheslav Frolov](http://sourceforge.net/u/vfrolov/profile/)
 //-----------------------------------------------------------------------------------------------------
 IDE - Visual Studio 2015.
 
-ModbusRtuToTcpProxy - программа для преобразования протокола ModbusRTU в ModbusTCP.
-Является прокси сервером между программой-преобразователем интерфейсов serial COMM в TCP/IP.
-Например - HW VSP3 Single(https://www.hw-group.com/software/hw-vsp3-virtual-serial-port).
-Подходит для тех у кого есть программное обеспечение для звязи с устроиствами по протоколу
-ModbusRTU через COMM порт, но он хочет связываться с устроиствами по протоколу
-ModbusTCP, по сети TCP/IP.
+ModbusRtuToTcpProxy - РїСЂРѕРіСЂР°РјРјР° РґР»СЏ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏ РїСЂРѕС‚РѕРєРѕР»Р° ModbusRTU РІ ModbusTCP.
+РЇРІР»СЏРµС‚СЃСЏ РїСЂРѕРєСЃРё СЃРµСЂРІРµСЂРѕРј РјРµР¶РґСѓ РїСЂРѕРіСЂР°РјРјРѕР№-РїСЂРµРѕР±СЂР°Р·РѕРІР°С‚РµР»РµРј РёРЅС‚РµСЂС„РµР№СЃРѕРІ serial COMM РІ TCP/IP.
+РќР°РїСЂРёРјРµСЂ - HW VSP3 Single(https://www.hw-group.com/software/hw-vsp3-virtual-serial-port).
+РџРѕРґС…РѕРґРёС‚ РґР»СЏ С‚РµС… Сѓ РєРѕРіРѕ РµСЃС‚СЊ РїСЂРѕРіСЂР°РјРјРЅРѕРµ РѕР±РµСЃРїРµС‡РµРЅРёРµ РґР»СЏ Р·РІСЏР·Рё СЃ СѓСЃС‚СЂРѕРёСЃС‚РІР°РјРё РїРѕ РїСЂРѕС‚РѕРєРѕР»Сѓ
+ModbusRTU С‡РµСЂРµР· COMM РїРѕСЂС‚, РЅРѕ РѕРЅ С…РѕС‡РµС‚ СЃРІСЏР·С‹РІР°С‚СЊСЃСЏ СЃ СѓСЃС‚СЂРѕРёСЃС‚РІР°РјРё РїРѕ РїСЂРѕС‚РѕРєРѕР»Сѓ
+ModbusTCP, РїРѕ СЃРµС‚Рё TCP/IP.
 
-Как это работает?
-Программа HW VSP3 Single в роли клиента зоздаёт виртуальный COMM порт, принимает в него данные от
-программного обеспечение для звязи с устроиствами по протоколу ModbusRTU и
-отправляет их в соккет для передачи по сети TCP/IP.
-ModbusRtuToTcpProxy - в качестве прокси сервера принимает данные из соккета
-в который их отправляет HW VSP3 Single в роли клиента,
-преобразовывает протокол ModbusRTU в ModbusTCP и отправляет их в другой соккет,
-для передачи по сети TCP/IP устройству ModbusTCP.
+РљР°Рє СЌС‚Рѕ СЂР°Р±РѕС‚Р°РµС‚?
+РџСЂРѕРіСЂР°РјРјР° HW VSP3 Single РІ СЂРѕР»Рё РєР»РёРµРЅС‚Р° Р·РѕР·РґР°С‘С‚ РІРёСЂС‚СѓР°Р»СЊРЅС‹Р№ COMM РїРѕСЂС‚, РїСЂРёРЅРёРјР°РµС‚ РІ РЅРµРіРѕ РґР°РЅРЅС‹Рµ РѕС‚
+РїСЂРѕРіСЂР°РјРјРЅРѕРіРѕ РѕР±РµСЃРїРµС‡РµРЅРёРµ РґР»СЏ Р·РІСЏР·Рё СЃ СѓСЃС‚СЂРѕРёСЃС‚РІР°РјРё РїРѕ РїСЂРѕС‚РѕРєРѕР»Сѓ ModbusRTU Рё
+РѕС‚РїСЂР°РІР»СЏРµС‚ РёС… РІ СЃРѕРєРєРµС‚ РґР»СЏ РїРµСЂРµРґР°С‡Рё РїРѕ СЃРµС‚Рё TCP/IP.
+ModbusRtuToTcpProxy - РІ РєР°С‡РµСЃС‚РІРµ РїСЂРѕРєСЃРё СЃРµСЂРІРµСЂР° РїСЂРёРЅРёРјР°РµС‚ РґР°РЅРЅС‹Рµ РёР· СЃРѕРєРєРµС‚Р°
+РІ РєРѕС‚РѕСЂС‹Р№ РёС… РѕС‚РїСЂР°РІР»СЏРµС‚ HW VSP3 Single РІ СЂРѕР»Рё РєР»РёРµРЅС‚Р°,
+РїСЂРµРѕР±СЂР°Р·РѕРІС‹РІР°РµС‚ РїСЂРѕС‚РѕРєРѕР» ModbusRTU РІ ModbusTCP Рё РѕС‚РїСЂР°РІР»СЏРµС‚ РёС… РІ РґСЂСѓРіРѕР№ СЃРѕРєРєРµС‚,
+РґР»СЏ РїРµСЂРµРґР°С‡Рё РїРѕ СЃРµС‚Рё TCP/IP СѓСЃС‚СЂРѕР№СЃС‚РІСѓ ModbusTCP.
 
-Программа HW VSP3 Single в роли сервера на другом конце сети зоздаёт виртуальный COMM порт
-и отправляет в него данные принятые из соккета по сети TCP/IP.
+РџСЂРѕРіСЂР°РјРјР° HW VSP3 Single РІ СЂРѕР»Рё СЃРµСЂРІРµСЂР° РЅР° РґСЂСѓРіРѕРј РєРѕРЅС†Рµ СЃРµС‚Рё Р·РѕР·РґР°С‘С‚ РІРёСЂС‚СѓР°Р»СЊРЅС‹Р№ COMM РїРѕСЂС‚
+Рё РѕС‚РїСЂР°РІР»СЏРµС‚ РІ РЅРµРіРѕ РґР°РЅРЅС‹Рµ РїСЂРёРЅСЏС‚С‹Рµ РёР· СЃРѕРєРєРµС‚Р° РїРѕ СЃРµС‚Рё TCP/IP.
 
 //-----------------------------------------------------------------------------------------------------
-Использование: напишите в командной строке: 
-ModbusRtuToTcpProxy  <listen port> <host addr> <host port>
-Для примера: 
-ModbusRtuToTcpProxy      502      192.168.0.9     502
+РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ:
+HW VSP3 Single.
+Р—Р°РїСѓСЃС‚РёС‚Рµ HW VSP3 Single.
+РІРєР»Р°РґРєР° - Virtual Serial Port:
+РІРІРµРґРёС‚Рµ РІ РїРѕР»Рµ IP Address: localhoct РёР»Рё 127.0.0.1
+РІРІРµРґРёС‚Рµ РІ РїРѕР»Рµ Port: 502 РёР»Рё РґСЂСѓРіРѕР№.
+РІРІРµРґРёС‚Рµ РІ РїРѕР»Рµ Port Name: COM3 РёР»Рё РґСЂСѓРіРѕР№.
+СЃРѕР·РґР°Р№С‚Рµ РІРёСЂС‚СѓР°Р»СЊРЅС‹Р№ COMM РїРѕСЂС‚: РєРЅРѕРїРєР° - Create COM
 
-Файл start.bat для удобного запуска программы ModbusRtuToTcpProxy.
+ModbusRtuToTcpProxy.
+РЅР°РїРёС€РёС‚Рµ РІ РєРѕРјР°РЅРґРЅРѕР№ СЃС‚СЂРѕРєРµ: 
+ModbusRtuToTcpProxy  <listen port> <host addr> <host port>
+Р”Р»СЏ РїСЂРёРјРµСЂР°: 
+ModbusRtuToTcpProxy      502      192.168.0.9     502
+<listen port> - РїРѕСЂС‚ РІ РєРѕС‚РѕСЂС‹Р№ РїСЂРёРЅРёРјР°СЋС‚СЃСЏ РґР°РЅРЅС‹Рµ РѕС‚ - HW VSP3 Single.
+<host addr> - Р°РґСЂРµСЃ СѓСЃС‚СЂРѕР№СЃС‚РІР° ModbusTCP РІ СЃРµС‚Рё TCP/IP.
+<host port> - РїРѕСЂС‚ СѓСЃС‚СЂРѕР№СЃС‚РІР° ModbusTCP РІ СЃРµС‚Рё TCP/IP.
+
+Р¤Р°Р№Р» start.bat РґР»СЏ СѓРґРѕР±РЅРѕРіРѕ Р·Р°РїСѓСЃРєР° РїСЂРѕРіСЂР°РјРјС‹ ModbusRtuToTcpProxy.
 
 //-----------------------------------------------------------------------------------------------------
 ModbusRtuToTcpProxy - a program for converting the ModbusRTU protocol to ModbusTCP.
@@ -57,9 +70,22 @@ HW VSP3 Single program as a server on the other end of the network creates a vir
 and sends data received from the socket to the TCP / IP network into it.
 
 //-----------------------------------------------------------------------------------------------------
-Usage: write on the command line:
+Using:
+HW VSP3 Single.
+Launch HW VSP3 Single.
+tab - Virtual Serial Port:
+enter in the IP Address: localhoct or 127.0.0.1 field
+Type in Port: 502 or another.
+Type in Port Name: COM3 or another.
+create virtual COMM port: button - Create COM
+
+ModbusRtuToTcpProxy.
+write on the command line:
 ModbusRtuToTcpProxy <listen port> <host addr> <host port>
 For example:
-ModbusRtuToTcpProxy     502      192.168.0.9      502
+ModbusRtuToTcpProxy      502 192.168.0.9         502
+<listen port> - port to which data is received from - HW VSP3 Single.
+<host addr> is the address of the ModbusTCP device on the TCP / IP network.
+<host port> - port of the ModbusTCP device on the TCP / IP network.
 
 Start.bat file for convenient launch of the ModbusRtuToTcpProxy program.
