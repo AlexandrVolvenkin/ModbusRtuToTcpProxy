@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="ModbusRtuToTcp" />
+		<Option pch_mode="2" />
+		<Option compiler="avrgcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/com2tcp" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="avrgcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/com2tcp" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="avrgcc" />
+				<Compiler>
+					<Add option="-Os" />
+				</Compiler>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="Crc.cpp" />
+		<Unit filename="Crc.h" />
+		<Unit filename="Debug/com2tcp.res" />
+		<Unit filename="Release/com2tcp.res" />
+		<Unit filename="com2tcp.cpp" />
+		<Unit filename="com2tcp.h" />
+		<Unit filename="com2tcp.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="precomp.h" />
+		<Unit filename="rtu2tcp.cpp" />
+		<Unit filename="rtu2tcp.h" />
+		<Unit filename="telnet.cpp" />
+		<Unit filename="telnet.h" />
+		<Unit filename="utils.cxx" />
+		<Unit filename="utils.h" />
+		<Unit filename="version.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
