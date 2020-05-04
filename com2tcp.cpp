@@ -476,7 +476,7 @@ static void ModbusInOut(
     const ComParams &comParams,
     SOCKET hSockListen = INVALID_SOCKET)
 {
-    printf("InOut() START\n");
+    printf("ModbusInOut() START\n");
 
     protocol.Clean();
 
@@ -1624,7 +1624,11 @@ int main(int argc, char* argv[])
 
     if (argc == 4)
     {
-        cout << "ModbusRtuToTcpProxy" << endl;
+//        cout << "ModbusRtuToTcpProxy" << endl;
+        cout << "Copyright (c) 2020-2025 Alexandr Volvenkin" << endl;
+        cout << "elghost36@gmail.com" << endl;
+        cout << "" << endl;
+
         res = rtu2tcp(pArgs[0], comParams, pIF, pArgs[1], pArgs[2], *pProtocol, pAwakSeq);
     }
     else

@@ -1442,9 +1442,15 @@ static int rtu2tcp(
 ///////////////////////////////////////////////////////////////
 static void Usage(const char *pProgName)
 {
+    fprintf(stderr, "Usage (client mode):\n");
+    fprintf(stderr, "    %s [options] \\\\.\\<com port> <host addr> <host port>\n", pProgName);
+    fprintf(stderr, "\n");
     fprintf(stderr, "Usage (server mode):\n");
     fprintf(stderr, "    %s [options] \\\\.\\<listen port> <host addr> <host port>\n", pProgName);
     fprintf(stderr, "\n");
+    fprintf(stderr, "Common options:\n");
+    fprintf(stderr, "    --telnet              - use Telnet protocol.\n");
+    fprintf(stderr, "    --terminal <type>     - use terminal <type> (RFC 1091).\n");
     fprintf(stderr, "    --help                - show this help.\n");
     fprintf(stderr, "\n");
     fprintf(stderr, "COM port options:\n");
@@ -1619,6 +1625,9 @@ int main(int argc, char* argv[])
     if (argc == 4)
     {
         cout << "ModbusRtuToTcpProxy" << endl;
+        cout << "Copyright (c) 2020-2025 Alexandr Volvenkin" << endl;
+        cout << "Copyright (c) 2020-2025 Alexandr Volvenkin" << endl;
+        
         res = rtu2tcp(pArgs[0], comParams, pIF, pArgs[1], pArgs[2], *pProtocol, pAwakSeq);
     }
     else
