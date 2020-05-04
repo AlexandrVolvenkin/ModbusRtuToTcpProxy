@@ -38,12 +38,17 @@ ModbusRtuToTcpProxy - в качестве прокси сервера прини
 
 //-----------------------------------------------------------------------------------------------------
 
-Использование: напишите в командной строке: 
+Использование:
+напишите в командной строке:
+
 ModbusRtuToTcpProxy  <listen port> <host addr> <host port>
-Для примера: 
-ModbusRtuToTcpProxy      502      192.168.0.9     502
+Для примера:
+  
+ModbusRtuToTcpProxy       502      192.168.0.9    502
+
 
 Файл start.bat для удобного запуска программы ModbusRtuToTcpProxy.
+
 
 
 //-----------------------------------------------------------------------------------------------------
@@ -70,11 +75,17 @@ and sends data received from the socket to the TCP / IP network into it.
 
 //-----------------------------------------------------------------------------------------------------
 
-Usage: write on the command line:
+Usage:
+write on the command line:
+
 ModbusRtuToTcpProxy <listen port> <host addr> <host port>
+  
 For example:
-ModbusRtuToTcpProxy     502      192.168.0.9      502
+
+ModbusRtuToTcpProxy      02       192.168.0.9    502
+
 
 Start.bat file for convenient launch of the ModbusRtuToTcpProxy program.
+
 
 
