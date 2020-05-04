@@ -10,8 +10,11 @@ ModbusRtuToTcpProxy - proxy server program for converting ModbusRTU protocol to 
 
 Forked from:
 The homepage for com0com project is http://com0com.sourceforge.net/.
+
 COM port to TCP redirector. Brought to you by:
+
 vfrolov [Vyacheslav Frolov](http://sourceforge.net/u/vfrolov/profile/)
+
 
 //-----------------------------------------------------------------------------------------------------
 
