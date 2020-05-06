@@ -38,7 +38,6 @@
 			<Option compilerVar="WINDRES" />
 		</Unit>
 		<Unit filename="precomp.h" />
-		<Unit filename="rtu2tcp.cpp" />
 		<Unit filename="rtu2tcp.h" />
 		<Unit filename="telnet.cpp" />
 		<Unit filename="telnet.h" />

@@ -476,7 +476,7 @@ static void ModbusInOut(
     const ComParams &comParams,
     SOCKET hSockListen = INVALID_SOCKET)
 {
-    printf("InOut() START\n");
+    printf("ModbusInOut() START\n");
 
     protocol.Clean();
 
@@ -1395,47 +1395,52 @@ static int rtu2tcp(
     Protocol &protocol,
     const BYTE *pAwakSeq)
 {
-    SOCKET hSockListen = Socket(pIF, pListenPort);
-
-    if (hSockListen == INVALID_SOCKET)
-    {
-        cout << "hSockListen INVALID_SOCKET" << endl;
-        return 2;
-    }
-
-    if (listen(hSockListen, SOMAXCONN) == SOCKET_ERROR)
-    {
-        TraceLastError("tcp2com(): listen(\"%s\", \"%s\")", pIF, pPort);
-        closesocket(hSockListen);
-        return 2;
-    }
-
+    uint8_t nuc
     while (1)
     {
-        SOCKET hTcpSock = Connect(pIF, pAddr, pPort);
-        if (hTcpSock == INVALID_SOCKET)
+        SOCKET hSockListen = Socket(pIF, pListenPort);
+
+        if (hSockListen == INVALID_SOCKET)
         {
-            cout << "hTcpSock == INVALID_SOCKET" << endl;
-            //break;
+            cout << "hSockListen INVALID_SOCKET" << endl;
+            return 2;
         }
 
-        SOCKET hRtuSock = Accept(hSockListen);
-
-        if (hRtuSock == INVALID_SOCKET)
+        if (listen(hSockListen, SOMAXCONN) == SOCKET_ERROR)
         {
-            cout << "hRtuSock == INVALID_SOCKET" << endl;
-            //break;
+            TraceLastError("tcp2com(): listen(\"%s\", \"%s\")", pIF, pPort);
+            closesocket(hSockListen);
+            return 2;
         }
 
-        ModbusInOut(hRtuSock, hTcpSock, protocol, comParams, hSockListen);
-        Disconnect(hRtuSock);
-        Disconnect(hTcpSock);
+        while (1)
+        {
+            SOCKET hTcpSock = Connect(pIF, pAddr, pPort);
+            if (hTcpSock == INVALID_SOCKET)
+            {
+                cout << "hTcpSock == INVALID_SOCKET" << endl;
+                cout << "Please check the connection to the device!" << endl;
+                break;
+            }
 
-        Sleep(1000);
+            SOCKET hRtuSock = Accept(hSockListen);
+
+            if (hRtuSock == INVALID_SOCKET)
+            {
+                cout << "hRtuSock == INVALID_SOCKET" << endl;
+                cout << "Please check connection to comm port!" << endl;
+                break;
+            }
+
+            ModbusInOut(hRtuSock, hTcpSock, protocol, comParams, hSockListen);
+            Disconnect(hRtuSock);
+            Disconnect(hTcpSock);
+
+            Sleep(1000);
+        }
+
+        closesocket(hSockListen);
     }
-
-    closesocket(hSockListen);
-
     return 2;
 }
 
@@ -1624,10 +1629,11 @@ int main(int argc, char* argv[])
 
     if (argc == 4)
     {
-        cout << "ModbusRtuToTcpProxy" << endl;
+//        cout << "ModbusRtuToTcpProxy" << endl;
         cout << "Copyright (c) 2020-2025 Alexandr Volvenkin" << endl;
-        cout << "Copyright (c) 2020-2025 Alexandr Volvenkin" << endl;
-        
+        cout << "elghost36@gmail.com" << endl;
+        cout << "" << endl;
+
         res = rtu2tcp(pArgs[0], comParams, pIF, pArgs[1], pArgs[2], *pProtocol, pAwakSeq);
     }
     else

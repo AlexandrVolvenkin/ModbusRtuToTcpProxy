@@ -98,7 +98,7 @@ int iCrc16Check(unsigned char *pucSource, unsigned short nusLength)
 }
 
 //-----------------------------------------------------------------------------------------------------
-// РІС‹С‡РёСЃР»СЏРµС‚ РґРІСѓС…Р±Р°Р№С‚РѕРІСѓСЋ РєРѕРЅС‚СЂРѕР»СЊРЅСѓСЋ СЃСѓРјРјСѓ.
+// вычисляет двухбайтовую контрольную сумму.
 unsigned short usCrcSummTwoByteCalculation(
     unsigned char *pucSource,
     unsigned int nuiNbyte)
@@ -117,7 +117,7 @@ unsigned short usCrcSummTwoByteCalculation(
 }
 
 //-----------------------------------------------------------------------------------------------------
-// СЃСЂР°РІРЅРёРІР°РµС‚ РґРІСѓС…Р±Р°Р№С‚РѕРІСѓСЋ РєРѕРЅС‚СЂРѕР»СЊРЅСѓСЋ СЃСѓРјРјСѓ.
+// сравнивает двухбайтовую контрольную сумму.
 int iCrcSummTwoByteCompare(unsigned char *pucSource,
                            unsigned int nuiNbyte)
 {
@@ -143,7 +143,7 @@ int iCrcSummTwoByteCompare(unsigned char *pucSource,
 }
 
 //-----------------------------------------------------------------------------------------------------
-// СЃСЂР°РІРЅРёРІР°РµС‚ РѕРґРЅРѕР±Р°Р№С‚РѕРІСѓСЋ РєРѕРЅС‚СЂРѕР»СЊРЅСѓСЋ СЃСѓРјРјСѓ.
+// сравнивает однобайтовую контрольную сумму.
 int iCrcSummOneByteCompare(unsigned char *pucSource,
                            unsigned int nuiNbyte)
 {

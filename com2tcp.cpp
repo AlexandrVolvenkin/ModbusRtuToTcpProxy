@@ -1395,47 +1395,54 @@ static int rtu2tcp(
     Protocol &protocol,
     const BYTE *pAwakSeq)
 {
-    SOCKET hSockListen = Socket(pIF, pListenPort);
+    uint8_t nucFaultsCounter;
 
-    if (hSockListen == INVALID_SOCKET)
+    nucFaultsCounter = 60;
+    while (nucFaultsCounter--)
     {
-        cout << "hSockListen INVALID_SOCKET" << endl;
-        return 2;
-    }
+        SOCKET hSockListen = Socket(pIF, pListenPort);
 
-    if (listen(hSockListen, SOMAXCONN) == SOCKET_ERROR)
-    {
-        TraceLastError("tcp2com(): listen(\"%s\", \"%s\")", pIF, pPort);
+        if (hSockListen == INVALID_SOCKET)
+        {
+            cout << "hSockListen INVALID_SOCKET" << endl;
+            return 2;
+        }
+
+        if (listen(hSockListen, SOMAXCONN) == SOCKET_ERROR)
+        {
+            TraceLastError("tcp2com(): listen(\"%s\", \"%s\")", pIF, pPort);
+            closesocket(hSockListen);
+            return 2;
+        }
+
+        while (1)
+        {
+            SOCKET hTcpSock = Connect(pIF, pAddr, pPort);
+            if (hTcpSock == INVALID_SOCKET)
+            {
+                cout << "hTcpSock INVALID_SOCKET" << endl;
+                cout << "Please check the connection to the host!" << endl;
+                break;
+            }
+
+            SOCKET hRtuSock = Accept(hSockListen);
+
+            if (hRtuSock == INVALID_SOCKET)
+            {
+                cout << "hRtuSock INVALID_SOCKET" << endl;
+                cout << "Please check connection to comm port!" << endl;
+                break;
+            }
+
+            ModbusInOut(hRtuSock, hTcpSock, protocol, comParams, hSockListen);
+            Disconnect(hRtuSock);
+            Disconnect(hTcpSock);
+
+            Sleep(1000);
+        }
+
         closesocket(hSockListen);
-        return 2;
     }
-
-    while (1)
-    {
-        SOCKET hTcpSock = Connect(pIF, pAddr, pPort);
-        if (hTcpSock == INVALID_SOCKET)
-        {
-            cout << "hTcpSock == INVALID_SOCKET" << endl;
-            //break;
-        }
-
-        SOCKET hRtuSock = Accept(hSockListen);
-
-        if (hRtuSock == INVALID_SOCKET)
-        {
-            cout << "hRtuSock == INVALID_SOCKET" << endl;
-            //break;
-        }
-
-        ModbusInOut(hRtuSock, hTcpSock, protocol, comParams, hSockListen);
-        Disconnect(hRtuSock);
-        Disconnect(hTcpSock);
-
-        Sleep(1000);
-    }
-
-    closesocket(hSockListen);
-
     return 2;
 }
 
