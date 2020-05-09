@@ -25,9 +25,6 @@ ModbusRtuToTcpProxy - в качестве прокси сервера принимает данные из соккета
 преобразовывает протокол ModbusRTU в ModbusTCP и отправляет их в другой соккет,
 для передачи по сети TCP/IP устройству ModbusTCP.
 
-Программа HW VSP3 Single в роли сервера на другом конце сети зоздаёт виртуальный COMM порт
-и отправляет в него данные принятые из соккета по сети TCP/IP.
-
 //-----------------------------------------------------------------------------------------------------
 Использование:
 HW VSP3 Single.
@@ -65,9 +62,6 @@ ModbusRtuToTcpProxy - accepts data from a socket as a proxy server
 to which HW VSP3 Single sends them as a client,
 converts the ModbusRTU protocol to ModbusTCP and sends them to another socket,
 for transmission over a TCP / IP network to a ModbusTCP device.
-
-HW VSP3 Single program as a server on the other end of the network creates a virtual COMM port
-and sends data received from the socket to the TCP / IP network into it.
 
 //-----------------------------------------------------------------------------------------------------
 Using:
