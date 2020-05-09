@@ -1421,7 +1421,7 @@ static int rtu2tcp(
             if (hTcpSock == INVALID_SOCKET)
             {
                 cout << "hTcpSock INVALID_SOCKET" << endl;
-                cout << "Please check the connection to the host!" << endl;
+				cout << "Please check ModbusTCP side connection!" << endl;
                 break;
             }
 
@@ -1430,7 +1430,7 @@ static int rtu2tcp(
             if (hRtuSock == INVALID_SOCKET)
             {
                 cout << "hRtuSock INVALID_SOCKET" << endl;
-                cout << "Please check connection to comm port!" << endl;
+				cout << "Please check ModbusRTU side connection!" << endl;
                 break;
             }
 
