@@ -44,7 +44,7 @@ ModbusRtuToTcpProxy      502      192.168.0.9     502
 <host addr> - адрес устройства ModbusTCP в сети TCP/IP.
 <host port> - порт устройства ModbusTCP в сети TCP/IP.
 
-Файл start.bat для удобного запуска программы ModbusRtuToTcpProxy.
+Файл ModbusRtuToTcpProxy.bat для удобного запуска программы ModbusRtuToTcpProxy.
 
 //-----------------------------------------------------------------------------------------------------
 ModbusRtuToTcpProxy - a program for converting the ModbusRTU protocol to ModbusTCP.
@@ -82,4 +82,4 @@ ModbusRtuToTcpProxy      502      192.168.0.9     502
 <host addr> is the address of the ModbusTCP device on the TCP / IP network.
 <host port> - port of the ModbusTCP device on the TCP / IP network.
 
-Start.bat file for convenient launch of the ModbusRtuToTcpProxy program.
+ModbusRtuToTcpProxy.bat file for convenient launch of the ModbusRtuToTcpProxy program.
