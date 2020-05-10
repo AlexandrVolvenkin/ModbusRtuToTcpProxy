@@ -77,7 +77,7 @@ ModbusRtuToTcpProxy.
 write on the command line:
 ModbusRtuToTcpProxy <listen port> <host addr> <host port>
 For example:
-ModbusRtuToTcpProxy      502 192.168.0.9         502
+ModbusRtuToTcpProxy      502      192.168.0.9     502
 <listen port> - port to which data is received from - HW VSP3 Single.
 <host addr> is the address of the ModbusTCP device on the TCP / IP network.
 <host port> - port of the ModbusTCP device on the TCP / IP network.
