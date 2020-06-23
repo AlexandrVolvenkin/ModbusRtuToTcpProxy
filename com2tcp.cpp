@@ -1397,7 +1397,7 @@ static int rtu2tcp(
 {
     uint8_t nucFaultsCounter;
 
-    nucFaultsCounter = 60;
+    nucFaultsCounter = 600;
     while (nucFaultsCounter--)
     {
         SOCKET hSockListen = Socket(pIF, pListenPort);
