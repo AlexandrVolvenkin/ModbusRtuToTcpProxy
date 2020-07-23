@@ -1395,10 +1395,10 @@ static int rtu2tcp(
     Protocol &protocol,
     const BYTE *pAwakSeq)
 {
-    uint8_t nucFaultsCounter;
+    uint16_t nui16FaultsCounter;
 
-    nucFaultsCounter = 600;
-    while (nucFaultsCounter--)
+    nui16FaultsCounter = 600;
+    while (nui16FaultsCounter--)
     {
         SOCKET hSockListen = Socket(pIF, pListenPort);
 
